@@ -1,0 +1,44 @@
+# Dictionnaire des données de maLibrairie
+
+## Livres (`book`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du livre|
+|title|VARCHAR(64)|NOT NULL|Le titre du livre|
+|description|TEXT|NULL|Le résumé du livre|
+|picture|VARCHAR(128)|NULL|L'URL de l'image du livre|
+|price|DECIMAL(10,2)|NOT NULL, DEFAULT 0|Le prix du livre|
+|status|TINYINT(1)|NOT NULL, UNSIGNED, DEFAULT 0|Le statut du livre (1=dispo, 2=pas dispo)|
+|created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création du livre|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour|
+|author|entity|NOT NULL|L'auteur du livre|
+|category|entity|NOT NULL|La catégorie du livre|
+|edition|entity|NOT NULL|La maison d'édition du livre|
+
+## Catégorie du livre (table : `category`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la catégorie|
+|name|VARCHAR(64)|NOT NULL|Le nom de la catégorie|
+|created_at|TIMESTAMP|DEFAULT CURRENT_TIMESTAMP|La date de création de la catégorie|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour de la catégorie|
+
+## L'auteur du livre (table : `author`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'auteur|
+|name|VARCHAR(64)|NOT NULL|Le nom de l'auteur|
+|created_at|TIMESTAMP|DEFAULT CURRENT_TIMESTAMP|La date de création de l'auteur|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour|
+
+## Maison d'édition du livre (table : `edition`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la ME|
+|name|VARCHAR(64)|NOT NULL|Le nom de la ME|
+|created_at|TIMESTAMP|DEFAULT CURRENT_TIMESTAMP|La date de création de la ME|
+|updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour|
