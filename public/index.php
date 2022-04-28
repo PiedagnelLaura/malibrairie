@@ -14,7 +14,6 @@ $router->setBasePath($_SERVER['BASE_URI']);
 
 
 $listRoutes = [
-    //? home
     [
         'GET',
         '/',
@@ -24,6 +23,61 @@ $listRoutes = [
         ],
         'home'
     ], 
+    [
+        'GET',
+        '/mentions-legales',
+        [
+            'method' => 'legalNotice',
+            'controller' => 'App\Controllers\MainController'
+        ],
+        'legalNotice'
+    ], 
+    [
+        'GET',
+        '/condition-generale-de-vente',
+        [
+            'method' => 'generalCondition',
+            'controller' => 'App\Controllers\MainController'
+        ],
+        'generalCondition'
+    ], 
+    [
+        'GET',
+        '/catalogue/detail/[i:id]',
+        [
+            'method' => 'detail',
+            'controller' => 'App\Controllers\CatalogController'
+        ],
+        'detail'
+    ], 
+    [
+        'GET',
+        '/catalogue/categorie/[i:id]',
+        [
+            'method' => 'category',
+            'controller' => 'App\Controllers\CatalogController'
+        ],
+        'category'
+    ], 
+    [
+        'GET',
+        '/catalogue/auteur/[i:id]',
+        [
+            'method' => 'author',
+            'controller' => 'App\Controllers\CatalogController'
+        ],
+        'author'
+    ], 
+    [
+        'GET',
+        '/catalogue/edition/[i:id]',
+        [
+            'method' => 'edition',
+            'controller' => 'App\Controllers\CatalogController'
+        ],
+        'edition'
+    ], 
+
 ];
 
 $router->addRoutes($listRoutes);
