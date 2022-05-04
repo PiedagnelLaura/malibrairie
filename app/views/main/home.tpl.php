@@ -1,15 +1,20 @@
 <main>
             
     <div class="slider">
-        <section class="visible">
+        <?php foreach($bookSlider as $book) :
+        //dump($book);
+         ?>
+        <section class="invisible">
         <div class="description">
             <h2 class="love">Coup de coeur</h2>
-            <h3>Titre de auteur </h3>
+            <h3><?= $book['title'] ?> <br><?= $book['name'] ?> </h3>
             <a class="continue" href="">Découvrir</a>
         </div> 
-        <img src="images/livre02.jpg" alt="">
+        <img class="image-home" src="assets/images/<?= $book['picture'] ?>" alt="">
         <div class="description"></div>
         </section>
+        <?php endforeach ?>
+       
         <button class="slider-button" type="button" aria-label="Précédent" id="precedent">&lsaquo;</button>
         <button class="slider-button" type="button" aria-label="Suivant" id="suivant">&rsaquo;</button>
     </div>

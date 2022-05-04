@@ -9,7 +9,14 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $router = new AltoRouter();
 
-$router->setBasePath($_SERVER['BASE_URI']);
+if (array_key_exists('BASE_URI', $_SERVER)) {
+    // Alors on définit le basePath d'AltoRouter
+    $router->setBasePath($_SERVER['BASE_URI']);
+    // ainsi, nos routes correspondront à l'URL, après la suite de sous-répertoire
+} else { // sinon
+    // On donne une valeur par défaut à $_SERVER['BASE_URI'] car c'est utilisé dans le CoreController
+    $_SERVER['BASE_URI'] = '/';
+}
 
 
 
@@ -19,38 +26,17 @@ $listRoutes = [
         '/',
         [
             'method' => 'home',
-            'controller' => 'App\Controllers\MainController'
+            'controller' => 'MainController'
         ],
-        'home'
+        'main-home'
     ], 
     [
         'GET',
-        '/mentions-legales',
-        [
-            'method' => 'legalNotice',
-            'controller' => 'App\Controllers\MainController'
-        ],
-        'legalNotice'
+        '/livre/[i:id]',
+        'BookController::detail',
+        'book-detail'
     ], 
-    [
-        'GET',
-        '/condition-generale-de-vente',
-        [
-            'method' => 'generalCondition',
-            'controller' => 'App\Controllers\MainController'
-        ],
-        'generalCondition'
-    ], 
-    [
-        'GET',
-        '/catalogue/detail/[i:id]',
-        [
-            'method' => 'detail',
-            'controller' => 'App\Controllers\CatalogController'
-        ],
-        'detail'
-    ], 
-    [
+    /*[
         'GET',
         '/catalogue/categorie/[i:id]',
         [
@@ -76,7 +62,7 @@ $listRoutes = [
             'controller' => 'App\Controllers\CatalogController'
         ],
         'edition'
-    ], 
+    ], */
 
 ];
 
@@ -86,21 +72,10 @@ $router->addRoutes($listRoutes);
 $match = $router->match();
 
 
-if ($match === false) {
-    // normalement ce serait une 404, car on arrive dans ce bloc de code seulement si on a demandé une page non prévue
-    header("HTTP/1.1 404 Not Found");
-}
-else {
-
-    $controller = $match['target']['controller'];
-
-    $method = $match['target']['method'];
+$dispatcher = new Dispatcher($match, 'ErrorController::err404');
 
 
-    //? Instanciation dynamique
-    $instanceController = new $controller();
-
-    $instanceController->$method($match['params']);
+$dispatcher->setControllersNamespace('App\Controllers');
 
 
-}
+$dispatcher->dispatch();

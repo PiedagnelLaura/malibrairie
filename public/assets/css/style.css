@@ -101,8 +101,8 @@ nav {
     align-items: center;
 }
 
-img{
-    width: 15%;
+.image-home {
+    width: 180px;
     margin: auto;
 }
 

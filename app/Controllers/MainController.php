@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\Book;
 
 
 class MainController extends CoreController
@@ -8,6 +9,8 @@ class MainController extends CoreController
        // action home
     public function home($params = [])
     {
-        $this->show('home');
+        $book = new Book();
+        $bookSlider = $book->findAllFavorite();
+        $this->show('main/home', ['bookSlider' => $bookSlider]);
     }
 }
