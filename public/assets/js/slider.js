@@ -40,9 +40,9 @@ const slider = {
             sectionAvant = document.querySelectorAll('section')[0];
         }
 
-        if (slider.compteur > 1) {
+        if (slider.compteur > 3) {
             slider.compteur = 0;
-            sectionAvant = document.querySelectorAll('section')[1];
+            sectionAvant = document.querySelectorAll('section')[3];
         }
         
         let sectionAffiche = document.querySelectorAll('section')[slider.compteur];

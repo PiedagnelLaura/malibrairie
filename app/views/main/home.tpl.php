@@ -8,7 +8,7 @@
         <div class="description">
             <h2 class="love">Coup de coeur</h2>
             <h3><?= $book['title'] ?> <br><?= $book['name'] ?> </h3>
-            <a class="continue" href="">Découvrir</a>
+            <a class="continue" href="<?= $router->generate('book-detail', ['id' => $book['book_id']])?>">Découvrir</a>
         </div> 
         <img class="image-home" src="assets/images/<?= $book['picture'] ?>" alt="">
         <div class="description"></div>

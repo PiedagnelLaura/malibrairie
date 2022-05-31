@@ -16,9 +16,17 @@ class Book extends CoreModel
     private $author_id;
     private $edition_id;
 
-
+    /**
+     * Méthode permettant de récupérer les livres mis en avant sur la home 
+     *
+     * 
+     */
     public function findAllFavorite(){
-        $sql = "SELECT * FROM `book` 
+        $sql = "SELECT `book`.`id` AS book_id, 
+                `book`.`picture`,
+                `book`.`title`,
+                `author`.`name`
+                FROM `book` 
                 INNER JOIN `author` ON book.author_id = author.id
                 WHERE `home_order` > 0 
                 ORDER BY `home_order`;";
@@ -30,6 +38,26 @@ class Book extends CoreModel
 
         return $results;
     }
+
+    /**
+     * Méthode permettant de récupérer un enregistrement de la table Book en fonction d'un id donné
+     *@param int $bookId ID de la table book
+     * @return Book
+     */
+    public static function find($bookId){
+
+        $sql = "SELECT book.*, `edition`.name AS edition_name , author.name AS author_name  FROM `book`
+                INNER JOIN `author` ON book.author_id = author.id
+                INNER JOIN `edition` ON book.edition_id = `edition`.id
+                WHERE book.id = $bookId;";
+
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $book = $pdoStatement->fetch(\PDO::FETCH_ASSOC);
+        return $book;
+    }
+
+
 
     /**
      * Get the value of title

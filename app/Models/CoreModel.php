@@ -2,7 +2,7 @@
 namespace App\Models;
 //* Classe parente pour toutes les classes de type MVC
 
-class CoreModel
+abstract class CoreModel
 {
     protected $id;
     protected $created_at;

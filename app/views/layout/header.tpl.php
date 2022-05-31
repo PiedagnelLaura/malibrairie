@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="<?= $_SERVER['BASE_URI']?>">
     <title>MaLibrairie</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,7 +12,7 @@
     
         <header>
             <div class="top-header">
-                <h1 class="titre">MaLibrairie</h1>
+                <h1 class="titre"><a href="<?= $router->generate('main-home') ?>">MaLibrairie</a> </h1>
                 <form class="search" action="">
                     <input name="recherche" type="text" placeholder="Rechercher par titre, auteur, éditeur...">
                     <button class="search-button">
@@ -26,7 +26,7 @@
             </div>
             
             <nav>
-                <div class="contenent"><a class="navigation" href="index.php">Accueil</a></div>
+                <div class="contenent"><a class="navigation" href="<?= $router->generate('main-home') ?>">Accueil</a></div>
                 <div class="contenent"><a class="navigation" href="">Nouveautés</a></div>
                 <div class="contenent"><a class="navigation" href="">Rayons</a></div>
                 <div class="contenent"><a class="navigation" href="">Newsletter</a></div>

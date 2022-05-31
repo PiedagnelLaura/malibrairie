@@ -18,24 +18,22 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
     $_SERVER['BASE_URI'] = '/';
 }
 
+$router->map(
+    'GET',
+    '/',
+    'MainController::home',
+    'main-home'
+);
+$router->map(
+    'GET',
+    '/livre/[i:id]',
+    'BookController::detail',
+    'book-detail'
+);
 
 
-$listRoutes = [
-    [
-        'GET',
-        '/',
-        [
-            'method' => 'home',
-            'controller' => 'MainController'
-        ],
-        'main-home'
-    ], 
-    [
-        'GET',
-        '/livre/[i:id]',
-        'BookController::detail',
-        'book-detail'
-    ], 
+
+    
     /*[
         'GET',
         '/catalogue/categorie/[i:id]',
@@ -64,9 +62,7 @@ $listRoutes = [
         'edition'
     ], */
 
-];
 
-$router->addRoutes($listRoutes);
 
 // DISPATCHE
 $match = $router->match();
