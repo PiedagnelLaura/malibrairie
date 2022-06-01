@@ -57,6 +57,32 @@ class Book extends CoreModel
         return $book;
     }
 
+    /**
+     * Méthode permettant de récupérer un enregistrement de la table Book en fonction d'un id de catégorie donné
+     *
+     * @param int $categoryId ID de la category
+     * @return Book
+     */
+    public static function findByCategory($categoryId)
+    {
+   
+        $pdo = Database::getPDO();
+        $sql = "
+            SELECT *
+            FROM book
+            WHERE id IN (
+                SELECT book_id
+                FROM book_category
+                WHERE category_id = $categoryId
+            );";
+
+        $pdoStatement = $pdo->query($sql);
+
+        $result = $pdoStatement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
 
 
     /**

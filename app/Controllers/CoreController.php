@@ -1,11 +1,13 @@
 <?php
 namespace App\Controllers;
-
+use App\Models\Category;
 
 abstract class CoreController {
 
     protected function show($viewName, $viewData = []) {
         global $router;
+
+        $viewData['categoriesList'] = Category::findAll();
 
         $viewData['currentPage'] = $viewName;
     

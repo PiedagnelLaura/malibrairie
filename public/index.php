@@ -30,37 +30,12 @@ $router->map(
     'BookController::detail',
     'book-detail'
 );
-
-
-
-    
-    /*[
-        'GET',
-        '/catalogue/categorie/[i:id]',
-        [
-            'method' => 'category',
-            'controller' => 'App\Controllers\CatalogController'
-        ],
-        'category'
-    ], 
-    [
-        'GET',
-        '/catalogue/auteur/[i:id]',
-        [
-            'method' => 'author',
-            'controller' => 'App\Controllers\CatalogController'
-        ],
-        'author'
-    ], 
-    [
-        'GET',
-        '/catalogue/edition/[i:id]',
-        [
-            'method' => 'edition',
-            'controller' => 'App\Controllers\CatalogController'
-        ],
-        'edition'
-    ], */
+$router->map(
+    'GET',
+    '/categorie/[i:id]',
+    'CategoryController::list',
+    'category-list'
+);
 
 
 

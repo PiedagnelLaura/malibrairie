@@ -64,7 +64,7 @@ header {
     margin-right: 10px;
 }
 
-nav {
+.nav {
     display: flex;
     justify-content: center;
     padding: 1.5em;
@@ -82,7 +82,26 @@ nav {
 .navigation {
     text-decoration: none;
     color: black;
-    letter-spacing: 1px;   
+    letter-spacing: 1px;  
+}
+
+.rayons {
+    background-color: rgb(201, 224, 219);
+    width: 150px;
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 3;
+    margin-top: 15px;
+    z-index: 10;
+    border-top: 1px solid rgb(168, 206, 195);
+}
+.rayons li {
+    border-bottom: 1px solid rgb(168, 206, 195); 
+}
+.div-rayons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 

@@ -34,6 +34,7 @@
                 </div>
             </div>
         </footer>
+        <script src="assets/js/menu.js"></script>
         <script src="assets/js/slider.js"></script>
         <script src="assets/js/app.js"></script>
     </body>

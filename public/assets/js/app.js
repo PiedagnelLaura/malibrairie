@@ -1,6 +1,8 @@
 const app = {
     init: function () {
+        menu.init();
         slider.init();
+        
     },
 };
 
