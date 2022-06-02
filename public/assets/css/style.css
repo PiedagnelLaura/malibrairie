@@ -87,7 +87,7 @@ header {
 
 .rayons {
     background-color: rgb(201, 224, 219);
-    width: 150px;
+    width: 200px;
     font-size: 0.8em;
     text-align: center;
     line-height: 3;
@@ -245,7 +245,7 @@ h4 {
 }
 .tags {
     display: flex;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
 }
 .tag {
     background-color: rgb(201, 224, 219);
@@ -258,7 +258,9 @@ h4 {
     color: black;
     text-decoration: none;
 }
-/*--------------- PAGE CATEGORIES et AUTEURS ------------------*/
+
+
+/*--------------- PAGE CATEGORIES, EDITION et AUTEURS ------------------*/
 .category {
     display: flex;
     flex-wrap: wrap;
@@ -293,7 +295,8 @@ h4 {
 }
 
 .categ .detail-title a,
-h3 a {
+h3 a,
+.detail-edition a {
     text-decoration: none;
     color: black;
 }

@@ -42,6 +42,12 @@ $router->map(
     'AuthorController::list',
     'author-list'
 );
+$router->map(
+    'GET',
+    '/editeur/[i:id]',
+    'EditionController::list',
+    'edition-list'
+);
 
 
 // DISPATCHE

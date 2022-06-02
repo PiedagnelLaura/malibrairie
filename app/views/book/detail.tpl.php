@@ -21,7 +21,7 @@
 
                <h4>Résumé</h4>
                <p><?= $detail_book['description'] ?></p>
-               <p class="detail-edition">Edition : <?= $detail_book['edition_name'] ?></p>
+               <p class="detail-edition">Edition : <a href="<?= $router->generate('edition-list', ['id' => $detail_book['edition_id']])?>"><?= $detail_book['edition_name'] ?></a></p>
 
                <div class="detail-price">
                     <p><?= $detail_book['price'] ?> €</p>

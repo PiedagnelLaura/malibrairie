@@ -58,6 +58,24 @@ class Book extends CoreModel
     }
 
     /**
+     * Méthode permettant de récupérer un enregistrement de la table Book en fonction d'un id donné
+     *@param int $editionId ID de la table book
+     * @return Book
+     */
+    public static function findByEdition($editionId){
+
+        $sql = "SELECT book.*, `edition`.name AS edition_name , author.name AS author_name  FROM `book`
+                INNER JOIN `author` ON book.author_id = author.id
+                INNER JOIN `edition` ON book.edition_id = `edition`.id
+                WHERE book.edition_id = $editionId;";
+
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $book = $pdoStatement->fetchAll(\PDO::FETCH_ASSOC);
+        return $book;
+    }
+
+    /**
      * Méthode permettant de récupérer un enregistrement de la table Book en fonction d'un id de catégorie donné
      *
      * @param int $categoryId ID de la category
