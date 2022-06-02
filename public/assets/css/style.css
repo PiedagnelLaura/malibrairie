@@ -237,6 +237,27 @@ h4 {
     color: white;
     background-color: rgb(139, 167, 159);
 }
+.detail-author {
+    font-size: 1.3em;
+    font-style: italic;
+    padding-bottom: 15px ;
+
+}
+.tags {
+    display: flex;
+    padding-bottom: 80px;
+}
+.tag {
+    background-color: rgb(201, 224, 219);
+    padding : 10px 8px;
+    margin-right: 8px;
+    border-radius: 15px;
+}
+.tag a {
+    font-size: 0.8em;
+    color: black;
+    text-decoration: none;
+}
 /*--------------- PAGE CATEGORIES et AUTEURS ------------------*/
 .category {
     display: flex;

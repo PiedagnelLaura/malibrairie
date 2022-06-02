@@ -10,6 +10,24 @@ class Book_category extends CoreModel
     private $book_id;
 
     /**
+     * Méthode permettant de récupérer les catégories en fonction d'un id de livre donné
+     *@param int $booId ID de la table book
+     * @return Book
+     */
+    public static function findByBook($bookId){
+
+        $sql = "SELECT *
+                FROM book_category
+                INNER JOIN category 
+                ON book_category.category_id = category.id
+                WHERE book_category.book_id= $bookId;";
+
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $book = $pdoStatement->fetchAll(\PDO::FETCH_ASSOC);
+        return $book;
+    }
+    /**
      * Get the value of category_id
      */ 
     public function getCategory_id()
