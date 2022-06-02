@@ -6,7 +6,7 @@
            <div class="resume">
                
                    <h2 class="detail-title"><?= $detail_book['title'] ?></h2>
-                    <h3><?= $detail_book['author_name'] ?></h3>
+                    <h3><a href="<?= $router->generate('author-list', ['id' => $detail_book['author_id']])?>"><?= $detail_book['author_name'] ?></a></h3>
                
                     <h4>Résumé</h4>
                     <p><?= $detail_book['description'] ?></p>

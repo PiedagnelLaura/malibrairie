@@ -36,7 +36,12 @@ $router->map(
     'CategoryController::list',
     'category-list'
 );
-
+$router->map(
+    'GET',
+    '/auteur/[i:id]',
+    'AuthorController::list',
+    'author-list'
+);
 
 
 // DISPATCHE

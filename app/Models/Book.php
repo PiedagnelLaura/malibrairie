@@ -85,6 +85,24 @@ class Book extends CoreModel
         return $result;
     }
 
+    /**
+     * Méthode permettant de récupérer un enregistrement de la table Book en fonction d'un id d'auteur donné
+     *@param int $authorId ID de la table book
+     * @return Book
+     */
+    public static function findByAuthor($authorId){
+
+        $sql = "SELECT book.*, author.name AS author_name  FROM `book`
+                INNER JOIN `author` ON book.author_id = author.id
+                WHERE book.author_id = $authorId;";
+
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $book = $pdoStatement->fetchAll(\PDO::FETCH_ASSOC);
+        return $book;
+    }
+
+
 
 
     /**

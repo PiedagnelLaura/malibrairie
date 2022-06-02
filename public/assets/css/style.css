@@ -237,7 +237,7 @@ h4 {
     color: white;
     background-color: rgb(139, 167, 159);
 }
-/*--------------- PAGE CATEGORIES ------------------*/
+/*--------------- PAGE CATEGORIES et AUTEURS ------------------*/
 .category {
     display: flex;
     flex-wrap: wrap;
@@ -271,10 +271,13 @@ h4 {
     margin-top:-40px;
 }
 
-.categ .detail-title a {
+.categ .detail-title a,
+h3 a {
     text-decoration: none;
     color: black;
 }
+
+
 
 /*-----------------------FOOTER------------------------*/
 .footer-top {
