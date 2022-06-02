@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Book;
-
+use App\Models\Category;
 
 
 class CategoryController extends CoreController
@@ -11,7 +11,8 @@ class CategoryController extends CoreController
     public function list($id)
     {
        $bookCategory = Book::findByCategory($id);
-        $this->show('category/list', ["bookCategory" => $bookCategory]);
+       $categoryName = Category::find($id);
+        $this->show('category/list', ["bookCategory" => $bookCategory, "categoryName" => $categoryName]);
     }
 
 }

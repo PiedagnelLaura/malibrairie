@@ -43,4 +43,21 @@ class Category extends CoreModel
 
         return $results;
     }
+
+    /**
+     * Méthode permettant de récupérer le nom de la catégorie en fonction d'un id donné
+     *@param int $categId ID de la table category
+     * @return Category
+     */
+    public static function find($categoryId){
+
+        $sql = "SELECT *
+                FROM `category`
+                WHERE id = $categoryId;";
+
+        $pdo = Database::getPDO();
+        $pdoStatement = $pdo->query($sql);
+        $category = $pdoStatement->fetchObject('App\Models\Category');
+        return $category;
+    }
 }

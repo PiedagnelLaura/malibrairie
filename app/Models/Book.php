@@ -68,9 +68,11 @@ class Book extends CoreModel
    
         $pdo = Database::getPDO();
         $sql = "
-            SELECT *
+            SELECT book.*, author.name
             FROM book
-            WHERE id IN (
+            INNER JOIN author
+            ON author.id = book.author_id
+            WHERE book.id IN (
                 SELECT book_id
                 FROM book_category
                 WHERE category_id = $categoryId
